@@ -1,0 +1,165 @@
+#profile-background {
+    position: absolute;
+    width: 90%;
+    height: 20%;
+    left: 5%;
+    top: 15%;
+    background: #F0EFEF;
+}
+
+#avatar {
+    position: absolute;
+    width: 13%;
+    height: 78%;
+    left: 7%;
+    top: 35%;
+    border-radius: 50%;
+    background: #D9D9D9;
+}
+
+
+#username {
+    position: absolute;
+    width: 10%;
+    height: 15%;
+    left: calc(7% + 13% + 3%);
+    top: 70%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 200%;
+    line-height: 68%;
+    /* or 69% */
+
+    color: #3127A0;
+}
+
+
+#bio {
+    position: absolute;
+    width: 40%;
+    height: 2%;
+    left: calc(7% + 13% + 3%);
+    top: calc(70% + 15% + 6%);
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 125%;
+    line-height: 110%;
+
+    color: #000000;
+}
+
+
+#edit-button {
+    position: absolute;
+    width: 6%;
+    height: 5%;
+    left: 95%;
+    top: 120%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 130%;
+    line-height: 110%;
+    color: #000000;
+    z-index: 1000;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding-left: 28px;
+}
+
+#edit-button img {
+    position: absolute;
+    left: 5px; /* Adjust the position of the icon */
+    top: 3px; /* Adjust the position of the icon */
+    width: 20px; /* Adjust the width of the icon */
+    height: 20px; /* Adjust the height of the icon */
+}
+
+#info-slot-topleft {
+    position: absolute;
+    width: 38%;
+    height: 21%;
+    left: 5%;
+    top: 47%;
+    background: #F0EFEF;
+    border-radius: 30px;
+}
+
+#info-slot-topright {
+    position: absolute;
+    width: 38%;
+    height: 21%;
+    left: calc(5% + 38% + 13%);
+    top: 47%;
+    background: #F0EFEF;
+    border-radius: 30px;
+}
+
+#info-slot-bottomleft {
+    position: absolute;
+    width: 38%;
+    height: 21%;
+    left: 5%;
+    top: calc(47% + 21% + 6%);
+    background: #F0EFEF;
+    border-radius: 30px;
+}
+
+#info-slot-bottomright {
+    position: absolute;
+    width: 38%;
+    height: 21%;
+    left: calc(5% + 38% + 13%);
+    top: calc(47% + 21% + 6%);
+    background: #F0EFEF;
+    border-radius: 30px;
+}
+
+#info-slot-title {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    left: 33%;
+    top: 26%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 138%;
+    line-height: 110%;
+
+    color: #000000;
+}
+
+#info-slot-icon {
+    position: absolute;
+    width: 20%;
+    height: 50%;
+    left: 7%;
+    top: 22%;
+
+    background: #D9D9D9;
+    border-radius: 20px;
+}
+
+#info-slot-stats {
+    position: absolute;
+    width: auto; /* Let the width be determined by the content */
+    max-width: 100%; /* Limit the maximum width */
+    height: 22px;
+    left: 33%;
+    bottom: 30%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 270%;
+    line-height: 70%;
+    white-space: nowrap;
+    color: #3127A0;
+}
+
