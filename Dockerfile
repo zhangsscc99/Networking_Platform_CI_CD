@@ -14,5 +14,7 @@ FROM nginx
 EXPOSE 80
 COPY --from=builder /app/build /user/share/nginx/html  
 
+# RUN npm run build  
+# EXPOSE 3000 
 
 CMD [ "npm", "start"]
