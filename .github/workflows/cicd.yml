@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v3
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      -name: Build Docker Image
-       run: docker build -t yutingwang88888888/reactjs-app .
-      -name: Publish image to docker hub
-       run: docker push yutingwang88888888/reactjs-app:latest
+      - name: Build Docker Image
+        run: docker build -t yutingwang88888888/reactjs-app .
+      - name: Publish image to docker hub
+        run: docker push yutingwang88888888/reactjs-app:latest
   deploy:
     needs: build
     runs-on: aws-ec2
