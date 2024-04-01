@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - deploy-to-ec2
+  workflow_dispatch:
 
 jobs:
   build:
@@ -27,4 +28,5 @@ jobs:
         run: docker rm -f reactContainer
       - name: Run docker container
         run: docker run -d -p 3000:80 --name reactContainer yutingwang88888888/reactjs-app:latest
+
 
