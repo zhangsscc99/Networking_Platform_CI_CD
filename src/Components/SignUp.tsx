@@ -2,6 +2,7 @@ import HumaaansWireframe from '../Images/Humaaans Wireframe.png';
 import '../Styles/SignUp.modules.css';
 import React, { FormEvent } from 'react';
 import { useState, useEffect } from 'react';
+import SignupForm from "./SignupForm";
 
 
 
@@ -74,6 +75,7 @@ function SignUp({backToLoginHandler}: Props) {
         }}>
             <div>Test Variable: {testVariable}</div>
             <div>Test Variable2: {testVariable2}</div>
+            <div>{<SignupForm />}</div>
             {registrationSuccess && <div>Registration successful!</div>}
             {errorMessage && <div>{errorMessage}</div>}
             <div className="blue-half">
