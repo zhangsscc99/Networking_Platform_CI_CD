@@ -6,6 +6,36 @@ interface Props {
 }
 
 function SignUp({backToLoginHandler}: Props) {
+    const signUpHandler = async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const requestData = {
+            email: formData.get('email-address'),
+            password: formData.get('pass-word'),
+            firstName: formData.get('first-name'),
+            lastName: formData.get('last-name')
+        };
+
+        try {
+            const response = await fetch('/SignUp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            });
+            if (response.ok) {
+                // 注册成功，可以进行一些操作，比如跳转页面等
+            } else {
+                // 注册失败，处理错误信息
+            }
+        } catch (error) {
+            console.error('Error occurred:', error);
+        }
+    };
+
+
     return (
         <div style={{
             margin: 0,
@@ -31,7 +61,8 @@ function SignUp({backToLoginHandler}: Props) {
                     </div>
 
                     <div id="sign-up-form">
-                        <form>
+                        {/* <form> */}
+                        <form onSubmit={signUpHandler}>
                             <div id="sign-up-fields">
                                 <div id="float-left">
                                     <label htmlFor="first-name">First name</label><br />
