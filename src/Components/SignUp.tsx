@@ -1,15 +1,40 @@
 import HumaaansWireframe from '../Images/Humaaans Wireframe.png';
 import '../Styles/SignUp.modules.css';
+import React, { FormEvent } from 'react';
+import { useState, useEffect } from 'react';
+
+
 
 interface Props {
     backToLoginHandler: () => void;
 }
 
 function SignUp({backToLoginHandler}: Props) {
-    const signUpHandler = async (event) => {
+    
+    const [registrationSuccess, setRegistrationSuccess] = useState<boolean>(false);
+    const [testVariable, setTestVariable] = useState<string>('');
+    const [testVariable2, setTestVariable2] = useState<string>('');
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    const apiUrl = 'http://localhost:8080';
+
+    useEffect(() => {
+        // 在组件加载时发送请求
+        fetch(apiUrl + '/api/users/testVariable2')
+            .then(response => response.json())
+            .then(data => setTestVariable(data));
+    }, []);
+
+    // useEffect(() => {
+    //     // 在组件加载时发送请求
+    //     fetch(apiUrl + '/api/users/testVariable2')
+    //         .then(response2 => response2.json())
+    //         .then(data2 => setTestVariable2(data2));
+    // }, []);
+
+    const signUpHandler = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        const formData = new FormData(event.target);
+        const formData = new FormData(event.currentTarget);
         const requestData = {
             email: formData.get('email-address'),
             password: formData.get('pass-word'),
@@ -18,7 +43,7 @@ function SignUp({backToLoginHandler}: Props) {
         };
 
         try {
-            const response = await fetch('/SignUp', {
+            const response = await fetch(apiUrl + '/api/users/SignUp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,23 +51,31 @@ function SignUp({backToLoginHandler}: Props) {
                 body: JSON.stringify(requestData)
             });
             if (response.ok) {
-                // 注册成功，可以进行一些操作，比如跳转页面等
+                // 注册成功，显示提示消息
+                setRegistrationSuccess(true);
+                window.location.href = '/login'; // 修改浏览器的 URL 地址
             } else {
                 // 注册失败，处理错误信息
+                const errorData = await response.json();
+                setErrorMessage(errorData.message);
             }
         } catch (error) {
             console.error('Error occurred:', error);
         }
     };
 
-
     return (
+        
         <div style={{
             margin: 0,
             padding: 0,
             height: '100vh',
             background: 'linear-gradient(to right, #6358DC 50%, white 50%)'
         }}>
+            <div>Test Variable: {testVariable}</div>
+            <div>Test Variable2: {testVariable2}</div>
+            {registrationSuccess && <div>Registration successful!</div>}
+            {errorMessage && <div>{errorMessage}</div>}
             <div className="blue-half">
                 <img id="wireframe" src={HumaaansWireframe} alt="login image" />
             </div>
@@ -78,7 +111,7 @@ function SignUp({backToLoginHandler}: Props) {
                             <label htmlFor="pass-word"> password</label><br />
                             <input type="text" id="pass-word" name="pass-word" /><br />
 
-                            <button type="submit" id="submitt"> Submit </button>
+                            <button type="submit" id="submit"> Submit </button>
                             
                         </form>
                     </div>
