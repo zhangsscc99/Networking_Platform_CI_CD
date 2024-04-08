@@ -3,6 +3,7 @@ import '../Styles/SignUp.modules.css';
 import React, { FormEvent } from 'react';
 import { useState, useEffect } from 'react';
 import SignupForm from "./SignupForm";
+import LoginForm from "./LoginForm";
 
 
 
@@ -20,17 +21,17 @@ function SignUp({backToLoginHandler}: Props) {
 
     useEffect(() => {
         // 在组件加载时发送请求
-        fetch(apiUrl + '/api/users/testVariable2')
+        fetch(apiUrl + '/api/users/testVariable')
             .then(response => response.json())
             .then(data => setTestVariable(data));
     }, []);
 
-    // useEffect(() => {
-    //     // 在组件加载时发送请求
-    //     fetch(apiUrl + '/api/users/testVariable2')
-    //         .then(response2 => response2.json())
-    //         .then(data2 => setTestVariable2(data2));
-    // }, []);
+    useEffect(() => {
+        // 在组件加载时发送请求
+        fetch(apiUrl + '/api/users/testVariable2')
+            .then(response2 => response2.json())
+            .then(data2 => setTestVariable2(data2));
+    }, []);
 
     const signUpHandler = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -44,7 +45,8 @@ function SignUp({backToLoginHandler}: Props) {
         };
 
         try {
-            const response = await fetch(apiUrl + '/api/users/SignUp', {
+            //const response = await fetch(apiUrl + '/api/users/SignUp', {
+            const response = await fetch(apiUrl + '/SignUp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -76,6 +78,8 @@ function SignUp({backToLoginHandler}: Props) {
             <div>Test Variable: {testVariable}</div>
             <div>Test Variable2: {testVariable2}</div>
             <div>{<SignupForm />}</div>
+            <div>{<LoginForm />}</div>
+            
             {registrationSuccess && <div>Registration successful!</div>}
             {errorMessage && <div>{errorMessage}</div>}
             <div className="blue-half">
