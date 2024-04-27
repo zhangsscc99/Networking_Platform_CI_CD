@@ -33,6 +33,14 @@ function SignUp({backToLoginHandler}: Props) {
             .then(data2 => setTestVariable2(data2));
     }, []);
 
+    // useEffect(() => {
+    //     // 在组件加载时发送请求
+    //     fetch(apiUrl + '/testVariable2')
+    //         .then(response2 => response2.json())
+    //         .then(data2 => setTestVariable2(data2));
+    // }, []);
+
+
     const signUpHandler = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 

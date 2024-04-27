@@ -15,20 +15,20 @@ function Home({getStartedHandler, aboutUsHandler, contactHandler, FAQHandler, Pr
     const [testVariable, setTestVariable] = useState(0);
     const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        // 确保URL与后端API端点匹配
-        fetch('http://localhost:8080/api/users/testVariable')
-            .then(response => response.json())
-            .then(data => setTestVariable(data));
-    }, []);
+    // useEffect(() => {
+    //     // 确保URL与后端API端点匹配
+    //     fetch('http://localhost:8080/api/users/testVariable')
+    //         .then(response => response.json())
+    //         .then(data => setTestVariable(data));
+    // }, []);
 
-    const showUsersHandler = () => {
-        fetch('http://localhost:8080/api/users')
-            .then(response => response.json())
-            .then(data => {
-                setUsers(data); // 假设返回的数据是用户对象的数组
-            });
-    };
+    // const showUsersHandler = () => {
+    //     fetch('http://localhost:8080/api/users')
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             setUsers(data); // 假设返回的数据是用户对象的数组
+    //         });
+    // };
 
     
     

@@ -17,6 +17,7 @@ throw Error("Fail to log in");
 export const signup = (data) => {
 const apiUrl = 'http://localhost:8080'; 
 const signupUrl =apiUrl + "/api/users/SignUp";
+//const signupUrl ="/signup";
 
 return fetch(signupUrl, {
 method: "POST",
